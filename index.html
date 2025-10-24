@@ -38,11 +38,15 @@
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
+            padding: 20px;
         }
 
         .resume-container {
             margin: 0 auto;
             max-width: 1200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .resume {
@@ -51,7 +55,6 @@
             overflow: hidden;
             position: relative;
         }
-
 
         .resume::before {
             content: '';
@@ -334,7 +337,6 @@
             border-color: transparent rgba(255, 255, 255, 0.3) transparent transparent;
         }
 
-
         .timeline {
             position: relative;
         }
@@ -414,16 +416,29 @@
         .publication-item {
             margin-bottom: 25px;
             padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
             border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
         .project-card {
             margin-bottom: 25px;
             padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
             border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
         }
 
-        .publication-item:hover {
+        .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
@@ -446,7 +461,6 @@
             font-style: italic;
             color: var(--primary);
         }
-
 
         .project-title {
             font-weight: 600;
@@ -494,6 +508,42 @@
             font-size: 14px;
         }
 
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .resume {
+                flex-direction: column;
+            }
+
+            .sidebar,
+            .main {
+                width: 100%;
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+            }
+
+            .main {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .timeline-period {
+                align-self: flex-start;
+            }
+
+            .main-title {
+                font-size: 20px;
+                padding: 12px 20px;
+            }
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -522,7 +572,6 @@
         .delay-3 {
             animation-delay: 0.6s;
         }
-
     </style>
 </head>
 
@@ -532,9 +581,9 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <div class="profile-img">
-                    <img src="HOSSAIN.jpeg" width="150 px" alt="MD Mosharof Hossain">
+                    <img src="HOSSAIN.jpeg" alt="MD Mosharof Hossain">
                 </div>
-                <h1 class="name fade-in" style="text-transform: uppercase;">MD Mosharof Hossain</h1>
+                <h1 class="name fade-in">MD MOSHAROF HOSSAIN</h1>
                 <p class="title fade-in delay-1">PhD Candidate in Computer Science & Technology</p>
 
                 <div class="contact-info fade-in delay-2">
@@ -557,8 +606,7 @@
                 </div>
 
                 <div class="section fade-in">
-                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-user"></i> About Me
-                    </h2>
+                    <h2 class="section-title"><i class="fas fa-user"></i> ABOUT ME</h2>
                     <p class="about-text">
                         I am a passionate Computer Science researcher currently pursuing my PhD at Zhengzhou University.
                         My goal is to build a rewarding career in a dynamic organization that values creativity and
@@ -568,7 +616,7 @@
                 </div>
 
                 <div class="section fade-in delay-1">
-                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-star"></i> Skills</h2>
+                    <h2 class="section-title"><i class="fas fa-star"></i> SKILLS</h2>
                     <div class="skills-container">
                         <div class="skill-item">
                             <div class="skill-info">
@@ -628,8 +676,7 @@
                 </div>
 
                 <div class="section fade-in delay-2">
-                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-language"></i>
-                        Languages</h2>
+                    <h2 class="section-title"><i class="fas fa-language"></i> LANGUAGES</h2>
                     <ul class="languages-list">
                         <li class="language-item">
                             <span class="language-name">Bengali</span>
@@ -651,8 +698,7 @@
                 </div>
 
                 <div class="section fade-in delay-3">
-                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-award"></i>
-                        Certifications, Courses & Training</h2>
+                    <h2 class="section-title"><i class="fas fa-award"></i> CERTIFICATIONS, COURSES & TRAINING</h2>
                     <div class="certifications">
                         <div class="cert-badge">TEFL (120 hours)</div>
                         <div class="cert-badge">HSK 3 (94%)</div>
@@ -662,13 +708,12 @@
                         <div class="cert-badge">City Computer Training Center</div>
                     </div>
                 </div>
-
             </div>
 
             <!-- Main Content -->
             <div class="main">
                 <div class="main-section fade-in">
-                    <h2 class="main-title" style="text-transform: uppercase;">Education</h2>
+                    <h2 class="main-title">EDUCATION</h2>
                     <div class="education-container">
                         <div class="timeline">
                             <div class="timeline-item">
@@ -703,49 +748,89 @@
                 </div>
 
                 <div class="main-section fade-in delay-1">
-                    <h2 class="main-title" style="text-transform: uppercase;">Work Experience</h2>
-                    <div class="experience-container">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">ESL Teacher</div>
-                                    <div class="timeline-period">2017 - 2019</div>
-                                </div>
-                                <div class="timeline-subtitle">SI SHU MADTHA BIKUS BIDDA NIKETON, Dhaka, Bangladesh
-                                </div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Taught ESL to 150 students</li>
-                                        <li>Developed lesson plans and monitored progress</li>
-                                        <li>Improved students' language skills</li>
-                                        <li>Led extracurricular activities</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <h2 class="main-title">WORK EXPERIENCE</h2>
 
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">Junior IT Manager</div>
-                                    <div class="timeline-period">2015 - 2017</div>
-                                </div>
-                                <div class="timeline-subtitle">Global Software Architects, Dhaka, Bangladesh</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Collected client information to create sales plans</li>
-                                        <li>Provided after-sales support</li>
-                                        <li>Conducted security checks</li>
-                                        <li>Developed IT policies and training programs</li>
-                                    </ul>
-                                </div>
+                    <div style="display: flex; gap: 10px;">
+                        <!-- ESL Teacher Card -->
+                        <div class="project-card" style="flex: 1;">
+                            <div class="project-title">
+                                <i class="fas fa-chalkboard-teacher"></i> ESL Teacher
+                            </div>
+                            <div
+                                style="background: var(--gradient); color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; margin-bottom: 10px;">
+                                2017 - 2019
+                            </div>
+                            <div style="background: rgba(37, 99, 235, 0.05); padding: 15px;">
+                                <h4
+                                    style="color: var(--primary);font-size: 14px; font-weight: 600;margin-bottom: 10px; ">
+                                    Key Responsibilities:</h4>
+                                <ul style="margin-left: 20px; font-size: 13px; color: var(--gray);">
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Taught ESL to 150+ students</li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Developed lesson plans and
+                                        monitored progress</li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Improved students' language skills
+                                    </li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Led extracurricular activities
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Junior IT Manager Card -->
+                        <div class="project-card" style="flex: 1;">
+                            <div class="project-title">
+                                <i class="fas fa-laptop-code"></i> Junior IT Manager
+                            </div>
+                            <div
+                                style="background: var(--gradient); color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; margin-bottom: 10px;">
+                                2015 - 2017
+                            </div>
+                            <div style="background: rgba(37, 99, 235, 0.05); padding: 15px; ">
+                                <h4
+                                    style="color: var(--primary); margin-bottom: 10px; font-size: 14px; font-weight: 600;">
+                                    Key Responsibilities:</h4>
+                                <ul style="margin-left: 20px; font-size: 13px; color: var(--gray);">
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Collected information for
+                                        sales plans</li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Provided after-sales support</li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Conducted security checks</li>
+                                    <li style="margin-bottom: 5px; line-height: 1.4;">Developed IT policies and training
+                                        programs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <!-- Dayang -->
+                        <div class="project-card" style="flex: 1;">
+                            <div class="project-title">
+                                <i class="fas fa-laptop-code"></i> Dayang Group Sales Manager
+                            </div>
+                            <div class="publication-authors">Zhengzhou, Henan, China</div>
+                            <div
+                                style="background: var(--gradient); color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; margin-bottom: 10px;">
+
+                                2024 - Current
+                            </div>
+                        </div>
+                        <!-- Dayang -->
+                        <div class="project-card" style="flex: 1;">
+                            <div class="project-title">
+                                <i class="fas fa-laptop-code"></i> Better English ESL Teacher
+                            </div>
+                            <div class="publication-authors">Zhengzhou, Henan, China</div>
+                            <div
+                                style="background: var(--gradient); color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; display: inline-block; margin-bottom: 10px;">
+                                2022 - Current
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <div class="main-section fade-in delay-2">
-                    <h2 class="main-title">Publications</h2>
-
+                    <h2 class="main-title">PUBLICATIONS</h2>
                     <div class="publication-item">
                         <div class="publication-title">A novel approach to multilingual machine translation using hybrid
                             deep learning</div>
@@ -759,7 +844,6 @@
                         </div>
                     </div>
 
-
                     <div class="publication-item">
                         <div class="publication-title">Doctor's Appointment Booking Mobile Application</div>
                         <div class="publication-authors">MD Mosharof Hossain (First Author)</div>
@@ -769,17 +853,18 @@
                             <span class="publication-volume">Volume 01, Issue 07</span>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="main-section fade-in delay-3">
-                    <h2 class="main-title" style="text-transform: uppercase;">Projects</h2>
-                    <div class="projects-grid">
+                    <h2 class="main-title">PROJECTS</h2>
+
+                    <div style="display: flex; gap: 10px;">
                         <div class="project-card">
                             <div class="project-title"><i class="fas fa-home"></i> Android Home Automation System</div>
                             <div class="project-description">
                                 Developed a comprehensive home automation system using Android Studio for smart home
-                                control and management.
+                                control
+                                and management.
                             </div>
                             <div class="tags">
                                 <div class="tag">Android Studio</div>
@@ -787,13 +872,30 @@
                                 <div class="tag">IoT</div>
                             </div>
                         </div>
-
-
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-leaf"></i> Paddy Disease Identification App
+                            </div>
+                            <div class="project-description">
+                                Developed a mobile application that uses image processing and machine learning to
+                                identify paddy disease from leaf images.
+                            </div>
+                            <div class="tags">
+                                <div class="tag">Python</div>
+                                <div class="tag">TensorFlow</div>
+                                <div class="tag">OpenCV</div>
+                                <div class="tag">Android Studio</div>
+                                <div class="tag">Flask API</div>
+                                <div class="tag">Firebase</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
+
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
@@ -810,11 +912,11 @@
                 }, 500);
             });
 
-            // Add hover effect to project cards
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
+            // Add hover effect to project cards and publication items
+            const interactiveCards = document.querySelectorAll('.project-card, .publication-item');
+            interactiveCards.forEach(card => {
                 card.addEventListener('mouseenter', function () {
-                    this.style.transform = 'translateY(-10px)';
+                    this.style.transform = 'translateY(-5px)';
                 });
 
                 card.addEventListener('mouseleave', function () {
