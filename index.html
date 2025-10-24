@@ -38,27 +38,20 @@
             color: var(--dark);
             line-height: 1.6;
             min-height: 100vh;
-            padding: 20px;
         }
 
         .resume-container {
-            max-width: 1200px;
             margin: 0 auto;
+            max-width: 1200px;
         }
 
         .resume {
             display: flex;
             background-color: var(--white);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             position: relative;
-            transition: transform 0.3s ease;
         }
 
-        .resume:hover {
-            transform: translateY(-5px);
-        }
 
         .resume::before {
             content: '';
@@ -306,28 +299,41 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 24px;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
             margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary);
+            padding: 15px 25px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .education-container {
-            background-color: var(--education-bg);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--primary);
+        .main-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 40px 40px 0;
+            border-color: transparent var(--accent) transparent transparent;
         }
 
-        .experience-container {
-            background-color: var(--experience-bg);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--success);
+        .main-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 35px 35px 0;
+            border-color: transparent rgba(255, 255, 255, 0.3) transparent transparent;
         }
+
 
         .timeline {
             position: relative;
@@ -408,10 +414,13 @@
         .publication-item {
             margin-bottom: 25px;
             padding: 20px;
-            background: var(--light);
-            border-radius: 10px;
             border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
+        }
+
+        .project-card {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
         }
 
         .publication-item:hover {
@@ -438,24 +447,6 @@
             color: var(--primary);
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: var(--light);
-            border-radius: 10px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--accent);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        }
 
         .project-title {
             font-weight: 600;
@@ -532,54 +523,6 @@
             animation-delay: 0.6s;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .resume {
-                flex-direction: column;
-            }
-
-            .sidebar,
-            .main {
-                width: 100%;
-            }
-
-            .sidebar {
-                padding: 30px 25px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .main {
-                padding: 30px 25px;
-            }
-
-            .timeline-header {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .name {
-                font-size: 24px;
-            }
-
-            .title {
-                font-size: 14px;
-            }
-
-            .main {
-                padding: 20px;
-            }
-        }
     </style>
 </head>
 
@@ -702,22 +645,24 @@
                         </li>
                         <li class="language-item">
                             <span class="language-name">Urdu/Hindi</span>
-                            <span class="language-level">Intermediate</span>
+                            <span class="language-level">Fluent</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="section fade-in delay-3">
                     <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-award"></i>
-                        Certifications</h2>
+                        Certifications, Courses & Training</h2>
                     <div class="certifications">
                         <div class="cert-badge">TEFL (120 hours)</div>
                         <div class="cert-badge">HSK 3 (94%)</div>
-                        <div class="cert-badge">World Vocational Competition</div>
                         <div class="cert-badge">China-ASEAN Training</div>
                         <div class="cert-badge">Technical Writing</div>
+                        <div class="cert-badge">World Vocational College Skills Competition</div>
+                        <div class="cert-badge">City Computer Training Center</div>
                     </div>
                 </div>
+
             </div>
 
             <!-- Main Content -->
@@ -797,100 +742,6 @@
                     </div>
                 </div>
 
-                <div class="main-section fade-in delay-2">
-                    <h2 class="main-title" style="text-transform: uppercase;">Courses & Training</h2>
-                    <div class="training-container">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">Teaching English as a Foreign Language (TEFL)</div>
-                                    <div class="timeline-period">Completed</div>
-                                </div>
-                                <div class="timeline-subtitle">120 hours of English as a foreign language teaching</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Completed comprehensive 120-hour TEFL certification</li>
-                                        <li>Excellent proficiency in English language teaching methodologies</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">Chinese Proficiency Test (HSK 3)</div>
-                                    <div class="timeline-period">2020</div>
-                                </div>
-                                <div class="timeline-subtitle">Intermediate Chinese language course</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Completed Intermediate Chinese language course with 94% marks</li>
-                                        <li>Third level of the Chinese proficiency test (HSK 3)</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">World Vocational College Skills Competition</div>
-                                    <div class="timeline-period">Participated</div>
-                                </div>
-                                <div class="timeline-subtitle">Skills enhancement in Python, Linux, OpenStack, Docker,
-                                    Kubernetes, Ceph, and cloud computing</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Enhanced skills in Python programming and Linux administration</li>
-                                        <li>Gained expertise in OpenStack, Docker, Kubernetes, and Ceph</li>
-                                        <li>Developed comprehensive understanding of cloud computing technologies</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">China-ASEAN Education and Training Center</div>
-                                    <div class="timeline-period">Completed</div>
-                                </div>
-                                <div class="timeline-subtitle">Chinese language course</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Completed specialized Chinese language training program</li>
-                                        <li>Enhanced cross-cultural communication skills</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">City Computer Training Center</div>
-                                    <div class="timeline-period">6 Months</div>
-                                </div>
-                                <div class="timeline-subtitle">Comprehensive computer skills training</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>MS Word, Excel, PowerPoint, and Access</li>
-                                        <li>Basic Hardware troubleshooting and maintenance</li>
-                                        <li>Internet Browsing & Troubleshooting techniques</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-header">
-                                    <div class="timeline-title">Technical Writing of Research & Analysis</div>
-                                    <div class="timeline-period">Completed</div>
-                                </div>
-                                <div class="timeline-subtitle">Advanced research writing skills</div>
-                                <div class="timeline-content">
-                                    <ul>
-                                        <li>Thesis Writing and academic paper composition</li>
-                                        <li>Articles Writing for publications</li>
-                                        <li>Research Publication methodologies and best practices</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="main-section fade-in delay-2">
                     <h2 class="main-title">Publications</h2>
@@ -919,16 +770,6 @@
                         </div>
                     </div>
 
-                    <div class="publication-item">
-                        <div class="publication-title">Android-based Paddy Disease Identification System using Image
-                            Processing</div>
-                        <div class="publication-authors">MD Mosharof Hossain</div>
-                        <div class="publication-journal">International Journal of Total Agriculture, 2020</div>
-                        <div class="publication-details">
-                            <span class="publication-volume">Manuscript No. 10050</span>
-                        </div>
-                    </div>
-
                 </div>
 
                 <div class="main-section fade-in delay-3">
@@ -947,27 +788,10 @@
                             </div>
                         </div>
 
-                        <div class="project-card">
-                            <div class="project-title"><i class="fas fa-leaf"></i> Paddy Disease Identification App
-                            </div>
-                            <div class="project-description">
-                                Developed an Android application that can identify paddy diseases using image
-                                processing. Published in the International Journal of Total Agriculture.
-                            </div>
-                            <div class="tags">
-                                <div class="tag">Image Processing</div>
-                                <div class="tag">Machine Learning</div>
-                                <div class="tag">Android</div>
-                            </div>
-                        </div>
-
 
                     </div>
                 </div>
 
-                <div class="footer fade-in">
-                    <p>© 2025 MD Mosharof Hossain | Innovative Computer Scientist</p>
-                </div>
             </div>
         </div>
     </div>
