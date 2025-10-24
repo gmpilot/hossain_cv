@@ -1,835 +1,1004 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD. Mosharof Hossain - Innovative Computer Scientist</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #7e22ce;
-      --accent: #06b6d4;
-      --light: #f8fafc;
-      --dark: #1e293b;
-      --gray: #64748b;
-      --success: #10b981;
-      --white: #ffffff;
-      --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      --gradient-light: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
-      color: var(--dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    
-    .resume-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .resume {
-      display: flex;
-      background-color: var(--white);
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.3s ease;
-    }
-    
-    .resume:hover {
-      transform: translateY(-5px);
-    }
-    
-    .resume::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: var(--gradient);
-    }
-    
-    /* Sidebar */
-    .sidebar {
-      width: 35%;
-      background: var(--gradient);
-      color: var(--white);
-      padding: 40px 30px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .sidebar::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .sidebar::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -80px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      margin: 0 auto 20px;
-      background: var(--light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .profile-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-    
-    .title {
-      font-size: 16px;
-      font-weight: 400;
-      opacity: 0.9;
-      margin-bottom: 25px;
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-    
-    .contact-info {
-      margin-top: 25px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 10px 15px;
-      border-radius: 10px;
-      backdrop-filter: blur(5px);
-      transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-    
-    .contact-item i {
-      margin-right: 10px;
-      font-size: 16px;
-      width: 20px;
-      text-align: center;
-    }
-    
-    .section {
-      margin-bottom: 30px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-    }
-    
-    .section-title i {
-      margin-right: 10px;
-      font-size: 18px;
-    }
-    
-    .about-text {
-      font-size: 14px;
-      line-height: 1.7;
-      opacity: 0.9;
-    }
-    
-    .skills-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .skill-item {
-      margin-bottom: 5px;
-    }
-    
-    .skill-info {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 5px;
-    }
-    
-    .skill-name {
-      font-size: 14px;
-      font-weight: 500;
-    }
-    
-    .skill-percentage {
-      font-size: 12px;
-      opacity: 0.8;
-    }
-    
-    .skill-bar {
-      height: 6px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    
-    .skill-progress {
-      height: 100%;
-      background: var(--white);
-      border-radius: 10px;
-      position: relative;
-      transition: width 1.5s ease-in-out;
-    }
-    
-    .languages-list {
-      list-style: none;
-    }
-    
-    .language-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-    
-    .language-item:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-    
-    .language-name {
-      font-weight: 500;
-    }
-    
-    .language-level {
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--accent);
-    }
-    
-    .certifications {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .cert-badge {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-    
-    .cert-badge:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-    
-    /* Main Content */
-    .main {
-      width: 65%;
-      padding: 40px 50px;
-      background: var(--white);
-    }
-    
-    .main-section {
-      margin-bottom: 40px;
-    }
-    
-    .main-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 25px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--primary);
-      display: inline-block;
-    }
-    
-    .timeline {
-      position: relative;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 3px;
-      background: var(--gradient);
-      border-radius: 10px;
-    }
-    
-    .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
-      padding-left: 30px;
-    }
-    
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 5px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 3px solid var(--primary);
-      z-index: 2;
-    }
-    
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    
-    .timeline-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-    
-    .timeline-period {
-      background: var(--gradient);
-      color: white;
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-    
-    .timeline-subtitle {
-      font-size: 16px;
-      color: var(--primary);
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-    
-    .timeline-content {
-      font-size: 14px;
-      color: var(--gray);
-    }
-    
-    .timeline-content ul {
-      margin-left: 20px;
-      margin-top: 8px;
-    }
-    
-    .timeline-content li {
-      margin-bottom: 5px;
-    }
-    
-    .publication-item {
-      margin-bottom: 25px;
-      padding: 20px;
-      background: var(--light);
-      border-radius: 10px;
-      border-left: 4px solid var(--primary);
-      transition: all 0.3s ease;
-    }
-    
-    .publication-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-    
-    .publication-title {
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--dark);
-      font-size: 16px;
-    }
-    
-    .publication-authors {
-      font-size: 14px;
-      color: var(--gray);
-      margin-bottom: 5px;
-    }
-    
-    .publication-journal {
-      font-size: 14px;
-      font-style: italic;
-      color: var(--primary);
-    }
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    
-    .project-card {
-      background: var(--light);
-      border-radius: 10px;
-      padding: 20px;
-      transition: all 0.3s ease;
-      border-top: 4px solid var(--accent);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-    
-    .project-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--dark);
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .project-title i {
-      margin-right: 8px;
-      color: var(--accent);
-    }
-    
-    .project-description {
-      font-size: 14px;
-      color: var(--gray);
-    }
-    
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-    
-    .tag {
-      background: var(--white);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      color: var(--primary);
-      font-weight: 500;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    }
-    
-    /* Footer */
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
-      color: var(--gray);
-      font-size: 14px;
-    }
-    
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .fade-in {
-      animation: fadeIn 0.8s ease forwards;
-    }
-    
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.6s; }
-    
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .resume {
-        flex-direction: column;
-      }
-      
-      .sidebar, .main {
-        width: 100%;
-      }
-      
-      .sidebar {
-        padding: 30px 25px;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .main {
-        padding: 30px 25px;
-      }
-      
-      .timeline-header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      body {
-        padding: 10px;
-      }
-      
-      .name {
-        font-size: 24px;
-      }
-      
-      .title {
-        font-size: 14px;
-      }
-      
-      .main {
-        padding: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="resume-container">
-    <div class="resume">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="profile-img">
-          <img src="HOSSAIN.jpeg" alt="MD. Mosharof Hossain">
-        </div>
-        <h1 class="name fade-in">MD. Mosharof Hossain</h1>
-        <p class="title fade-in delay-1">PhD Candidate in Computer Science & Technology</p>
-        
-        <div class="contact-info fade-in delay-2">
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Zhengzhou, China</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>(+86) 15514386529</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>mosharofrasel330@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-globe"></i>
-            <span>Bangladeshi</span>
-          </div>
-        </div>
-        
-        <div class="section fade-in">
-          <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
-          <p class="about-text">
-            I am a passionate Computer Science researcher currently pursuing my PhD at Zhengzhou University. My goal is to build a rewarding career in a dynamic organization that values creativity and performance. I aim to leverage my education and experience in a meaningful role that supports organizational objectives while providing opportunities for career and personal growth.
-          </p>
-        </div>
-        
-        <div class="section fade-in delay-1">
-          <h2 class="section-title"><i class="fas fa-star"></i> Skills</h2>
-          <div class="skills-container">
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Android Studio</span>
-                <span class="skill-percentage">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 90%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Java</span>
-                <span class="skill-percentage">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 85%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Python</span>
-                <span class="skill-percentage">88%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 88%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Web Design</span>
-                <span class="skill-percentage">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 80%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">C/C++</span>
-                <span class="skill-percentage">82%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 82%"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Docker/Kubernetes</span>
-                <span class="skill-percentage">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" style="width: 75%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="section fade-in delay-2">
-          <h2 class="section-title"><i class="fas fa-language"></i> Languages</h2>
-          <ul class="languages-list">
-            <li class="language-item">
-              <span class="language-name">Bengali</span>
-              <span class="language-level">Native</span>
-            </li>
-            <li class="language-item">
-              <span class="language-name">English</span>
-              <span class="language-level">Fluent</span>
-            </li>
-            <li class="language-item">
-              <span class="language-name">Chinese</span>
-              <span class="language-level">HSK 3</span>
-            </li>
-            <li class="language-item">
-              <span class="language-name">Urdu/Hindi</span>
-              <span class="language-level">Intermediate</span>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="section fade-in delay-3">
-          <h2 class="section-title"><i class="fas fa-award"></i> Certifications</h2>
-          <div class="certifications">
-            <div class="cert-badge">TEFL (120 hours)</div>
-            <div class="cert-badge">HSK 3 (94%)</div>
-            <div class="cert-badge">World Vocational Competition</div>
-            <div class="cert-badge">China-ASEAN Training</div>
-            <div class="cert-badge">Technical Writing</div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Main Content -->
-      <div class="main">
-        <div class="main-section fade-in">
-          <h2 class="main-title">Education</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <div class="timeline-title">PhD in Computer Science and Technology</div>
-                <div class="timeline-period">2023 - Current</div>
-              </div>
-              <div class="timeline-subtitle">Zhengzhou University, Zhengzhou, China</div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <div class="timeline-title">MSc in Computer Science Technology</div>
-                <div class="timeline-period">2020 - 2023</div>
-              </div>
-              <div class="timeline-subtitle">Zhongyuan University of Technology, Zhengzhou, China</div>
-              <div class="timeline-content">Final Grade: 3.8/4.0</div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <div class="timeline-title">BSc in Computer Science Engineering</div>
-                <div class="timeline-period">2014 - 2018</div>
-              </div>
-              <div class="timeline-subtitle">Daffodil International University, Dhaka, Bangladesh</div>
-              <div class="timeline-content">Final Grade: 3.29/4.0</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="main-section fade-in delay-1">
-          <h2 class="main-title">Work Experience</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <div class="timeline-title">ESL Teacher</div>
-                <div class="timeline-period">2017 - 2019</div>
-              </div>
-              <div class="timeline-subtitle">SI SHU MADTHA BIKUS BIDDA NIKETON, Dhaka, Bangladesh</div>
-              <div class="timeline-content">
-                <ul>
-                  <li>Taught ESL to 150 students</li>
-                  <li>Developed lesson plans and monitored progress</li>
-                  <li>Improved students' language skills</li>
-                  <li>Led extracurricular activities</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-header">
-                <div class="timeline-title">Junior IT Manager</div>
-                <div class="timeline-period">2015 - 2017</div>
-              </div>
-              <div class="timeline-subtitle">Global Software Architects, Dhaka, Bangladesh</div>
-              <div class="timeline-content">
-                <ul>
-                  <li>Collected client information to create sales plans</li>
-                  <li>Provided after-sales support</li>
-                  <li>Conducted security checks</li>
-                  <li>Developed IT policies and training programs</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="main-section fade-in delay-2">
-          <h2 class="main-title">Publications</h2>
-          <div class="publication-item">
-            <div class="publication-title">A novel approach to multilingual machine translation using hybrid deep learning</div>
-            <div class="publication-authors">Md Mosharof Hossain, Long Zhang, Qiusheng Zheng, Shaohua Qian, Nan Dong</div>
-            <div class="publication-journal">Electronic Information Engineering, Big Data, and Computer Technology (EIBDCT), 2023</div>
-            <div class="publication-journal">DOI: 10.1117/12.2674943</div>
-          </div>
-        </div>
-        
-        <div class="main-section fade-in delay-3">
-          <h2 class="main-title">Projects</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <div class="project-title"><i class="fas fa-home"></i> Android Home Automation System</div>
-              <div class="project-description">
-                Developed a comprehensive home automation system using Android Studio for smart home control and management.
-              </div>
-              <div class="tags">
-                <div class="tag">Android Studio</div>
-                <div class="tag">Java</div>
-                <div class="tag">IoT</div>
-              </div>
-            </div>
-            
-            <div class="project-card">
-              <div class="project-title"><i class="fas fa-leaf"></i> Paddy Disease Identification App</div>
-              <div class="project-description">
-                Developed an Android application that can identify paddy diseases using image processing. Published in the International Journal of Total Agriculture.
-              </div>
-              <div class="tags">
-                <div class="tag">Image Processing</div>
-                <div class="tag">Machine Learning</div>
-                <div class="tag">Android</div>
-              </div>
-            </div>
-            
-            <div class="project-card">
-              <div class="project-title"><i class="fas fa-stethoscope"></i> Doctor's Appointment Booking App</div>
-              <div class="project-description">
-                Developed an application to help clients book doctor's appointments. Published as the First Author in the United International Journal for Research and Technology.
-              </div>
-              <div class="tags">
-                <div class="tag">Mobile App</div>
-                <div class="tag">Healthcare</div>
-                <div class="tag">UI/UX</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="footer fade-in">
-          <p>© 2025 MD. Mosharof Hossain | Innovative Computer Scientist</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <script>
-    // Animation for skill bars
-    document.addEventListener('DOMContentLoaded', function() {
-      const skillBars = document.querySelectorAll('.skill-progress');
-      
-      skillBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 500);
-      });
-      
-      // Add hover effect to project cards
-      const projectCards = document.querySelectorAll('.project-card');
-      projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-          this.style.transform = 'translateY(-10px)';
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MD Mosharof Hossain - Innovative Computer Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7e22ce;
+            --accent: #06b6d4;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --success: #10b981;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-light: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --education-bg: #f0f9ff;
+            --experience-bg: #f0fdf4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resume {
+            display: flex;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .resume:hover {
+            transform: translateY(-5px);
+        }
+
+        .resume::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 35%;
+            background: var(--gradient);
+            color: var(--white);
+            padding: 40px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .about-text {
+            font-size: 14px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-item {
+            margin-bottom: 5px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .skill-percentage {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--white);
+            border-radius: 10px;
+            position: relative;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .languages-list {
+            list-style: none;
+        }
+
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .language-name {
+            font-weight: 500;
+        }
+
+        .language-level {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--accent);
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cert-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main {
+            width: 65%;
+            padding: 40px 50px;
+            background: var(--white);
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .education-container {
+            background-color: var(--education-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .experience-container {
+            background-color: var(--experience-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--success);
+        }
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            z-index: 2;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .timeline-period {
+            background: var(--gradient);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .timeline-subtitle {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .timeline-content {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .timeline-content ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 5px;
+        }
+
+        .publication-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 16px;
+        }
+
+        .publication-authors {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .publication-journal {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-title i {
+            margin-right: 8px;
+            color: var(--accent);
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 500;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .resume {
+                flex-direction: column;
+            }
+
+            .sidebar,
+            .main {
+                width: 100%;
+            }
+
+            .sidebar {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 30px 25px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 24px;
+            }
+
+            .title {
+                font-size: 14px;
+            }
+
+            .main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="resume">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="profile-img">
+                    <img src="HOSSAIN.jpeg" width="150 px" alt="MD Mosharof Hossain">
+                </div>
+                <h1 class="name fade-in" style="text-transform: uppercase;">MD Mosharof Hossain</h1>
+                <p class="title fade-in delay-1">PhD Candidate in Computer Science & Technology</p>
+
+                <div class="contact-info fade-in delay-2">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Zhengzhou, China</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>(+86) 15514386529</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>mosharofrasel330@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>Bangladeshi</span>
+                    </div>
+                </div>
+
+                <div class="section fade-in">
+                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-user"></i> About Me
+                    </h2>
+                    <p class="about-text">
+                        I am a passionate Computer Science researcher currently pursuing my PhD at Zhengzhou University.
+                        My goal is to build a rewarding career in a dynamic organization that values creativity and
+                        performance. I aim to leverage my education and experience in a meaningful role that supports
+                        organizational objectives while providing opportunities for career and personal growth.
+                    </p>
+                </div>
+
+                <div class="section fade-in delay-1">
+                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-star"></i> Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Android Studio</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Web Design</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C/C++</span>
+                                <span class="skill-percentage">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Docker/Kubernetes</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section fade-in delay-2">
+                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-language"></i>
+                        Languages</h2>
+                    <ul class="languages-list">
+                        <li class="language-item">
+                            <span class="language-name">Bengali</span>
+                            <span class="language-level">Native</span>
+                        </li>
+                        <li class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">Fluent</span>
+                        </li>
+                        <li class="language-item">
+                            <span class="language-name">Chinese</span>
+                            <span class="language-level">HSK 3</span>
+                        </li>
+                        <li class="language-item">
+                            <span class="language-name">Urdu/Hindi</span>
+                            <span class="language-level">Intermediate</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section fade-in delay-3">
+                    <h2 class="section-title" style="text-transform: uppercase;"><i class="fas fa-award"></i>
+                        Certifications</h2>
+                    <div class="certifications">
+                        <div class="cert-badge">TEFL (120 hours)</div>
+                        <div class="cert-badge">HSK 3 (94%)</div>
+                        <div class="cert-badge">World Vocational Competition</div>
+                        <div class="cert-badge">China-ASEAN Training</div>
+                        <div class="cert-badge">Technical Writing</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main">
+                <div class="main-section fade-in">
+                    <h2 class="main-title" style="text-transform: uppercase;">Education</h2>
+                    <div class="education-container">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">PhD in Computer Science and Technology</div>
+                                    <div class="timeline-period">2023 - Current</div>
+                                </div>
+                                <div class="timeline-subtitle">Zhengzhou University, Zhengzhou, China</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">MSc in Computer Science Technology</div>
+                                    <div class="timeline-period">2020 - 2023</div>
+                                </div>
+                                <div class="timeline-subtitle">Zhongyuan University of Technology, Zhengzhou, China
+                                </div>
+                                <div class="timeline-content">Final Grade: 3.8/4.0</div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">BSc in Computer Science Engineering</div>
+                                    <div class="timeline-period">2014 - 2018</div>
+                                </div>
+                                <div class="timeline-subtitle">Daffodil International University, Dhaka, Bangladesh
+                                </div>
+                                <div class="timeline-content">Final Grade: 3.29/4.0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section fade-in delay-1">
+                    <h2 class="main-title" style="text-transform: uppercase;">Work Experience</h2>
+                    <div class="experience-container">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">ESL Teacher</div>
+                                    <div class="timeline-period">2017 - 2019</div>
+                                </div>
+                                <div class="timeline-subtitle">SI SHU MADTHA BIKUS BIDDA NIKETON, Dhaka, Bangladesh
+                                </div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Taught ESL to 150 students</li>
+                                        <li>Developed lesson plans and monitored progress</li>
+                                        <li>Improved students' language skills</li>
+                                        <li>Led extracurricular activities</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">Junior IT Manager</div>
+                                    <div class="timeline-period">2015 - 2017</div>
+                                </div>
+                                <div class="timeline-subtitle">Global Software Architects, Dhaka, Bangladesh</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Collected client information to create sales plans</li>
+                                        <li>Provided after-sales support</li>
+                                        <li>Conducted security checks</li>
+                                        <li>Developed IT policies and training programs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section fade-in delay-2">
+                    <h2 class="main-title" style="text-transform: uppercase;">Courses & Training</h2>
+                    <div class="training-container">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">Teaching English as a Foreign Language (TEFL)</div>
+                                    <div class="timeline-period">Completed</div>
+                                </div>
+                                <div class="timeline-subtitle">120 hours of English as a foreign language teaching</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Completed comprehensive 120-hour TEFL certification</li>
+                                        <li>Excellent proficiency in English language teaching methodologies</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">Chinese Proficiency Test (HSK 3)</div>
+                                    <div class="timeline-period">2020</div>
+                                </div>
+                                <div class="timeline-subtitle">Intermediate Chinese language course</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Completed Intermediate Chinese language course with 94% marks</li>
+                                        <li>Third level of the Chinese proficiency test (HSK 3)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">World Vocational College Skills Competition</div>
+                                    <div class="timeline-period">Participated</div>
+                                </div>
+                                <div class="timeline-subtitle">Skills enhancement in Python, Linux, OpenStack, Docker,
+                                    Kubernetes, Ceph, and cloud computing</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Enhanced skills in Python programming and Linux administration</li>
+                                        <li>Gained expertise in OpenStack, Docker, Kubernetes, and Ceph</li>
+                                        <li>Developed comprehensive understanding of cloud computing technologies</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">China-ASEAN Education and Training Center</div>
+                                    <div class="timeline-period">Completed</div>
+                                </div>
+                                <div class="timeline-subtitle">Chinese language course</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Completed specialized Chinese language training program</li>
+                                        <li>Enhanced cross-cultural communication skills</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">City Computer Training Center</div>
+                                    <div class="timeline-period">6 Months</div>
+                                </div>
+                                <div class="timeline-subtitle">Comprehensive computer skills training</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>MS Word, Excel, PowerPoint, and Access</li>
+                                        <li>Basic Hardware troubleshooting and maintenance</li>
+                                        <li>Internet Browsing & Troubleshooting techniques</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <div class="timeline-header">
+                                    <div class="timeline-title">Technical Writing of Research & Analysis</div>
+                                    <div class="timeline-period">Completed</div>
+                                </div>
+                                <div class="timeline-subtitle">Advanced research writing skills</div>
+                                <div class="timeline-content">
+                                    <ul>
+                                        <li>Thesis Writing and academic paper composition</li>
+                                        <li>Articles Writing for publications</li>
+                                        <li>Research Publication methodologies and best practices</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-section fade-in delay-2">
+                    <h2 class="main-title">Publications</h2>
+
+                    <div class="publication-item">
+                        <div class="publication-title">A novel approach to multilingual machine translation using hybrid
+                            deep learning</div>
+                        <div class="publication-authors">MD Mosharof Hossain, Long Zhang, Qiusheng Zheng, Shaohua Qian,
+                            Nan Dong</div>
+                        <div class="publication-journal">Electronic Information Engineering, Big Data, and Computer
+                            Technology (EIBDCT), 2023</div>
+                        <div class="publication-details">
+                            <span class="publication-volume">Volume 12642, Issue 126422P</span>
+                            <span class="publication-doi">DOI: 10.1117/12.2674943</span>
+                        </div>
+                    </div>
+
+
+                    <div class="publication-item">
+                        <div class="publication-title">Doctor's Appointment Booking Mobile Application</div>
+                        <div class="publication-authors">MD Mosharof Hossain (First Author)</div>
+                        <div class="publication-journal">United International Journal for Research and Technology, 2020
+                        </div>
+                        <div class="publication-details">
+                            <span class="publication-volume">Volume 01, Issue 07</span>
+                        </div>
+                    </div>
+
+                    <div class="publication-item">
+                        <div class="publication-title">Android-based Paddy Disease Identification System using Image
+                            Processing</div>
+                        <div class="publication-authors">MD Mosharof Hossain</div>
+                        <div class="publication-journal">International Journal of Total Agriculture, 2020</div>
+                        <div class="publication-details">
+                            <span class="publication-volume">Manuscript No. 10050</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="main-section fade-in delay-3">
+                    <h2 class="main-title" style="text-transform: uppercase;">Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-title"><i class="fas fa-home"></i> Android Home Automation System</div>
+                            <div class="project-description">
+                                Developed a comprehensive home automation system using Android Studio for smart home
+                                control and management.
+                            </div>
+                            <div class="tags">
+                                <div class="tag">Android Studio</div>
+                                <div class="tag">Java</div>
+                                <div class="tag">IoT</div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-title"><i class="fas fa-leaf"></i> Paddy Disease Identification App
+                            </div>
+                            <div class="project-description">
+                                Developed an Android application that can identify paddy diseases using image
+                                processing. Published in the International Journal of Total Agriculture.
+                            </div>
+                            <div class="tags">
+                                <div class="tag">Image Processing</div>
+                                <div class="tag">Machine Learning</div>
+                                <div class="tag">Android</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="footer fade-in">
+                    <p>© 2025 MD Mosharof Hossain | Innovative Computer Scientist</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation for skill bars
+        document.addEventListener('DOMContentLoaded', function () {
+            const skillBars = document.querySelectorAll('.skill-progress');
+
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+
+            // Add hover effect to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
         });
-        
-        card.addEventListener('mouseleave', function() {
-          this.style.transform = 'translateY(0)';
-        });
-      });
-    });
-  </script>
+    </script>
 </body>
+
 </html>
